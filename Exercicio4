@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabela de Conversão de Temperaturas</title>
+</head>
+<body>
+    <h1>Tabela de Conversão de Temperaturas</h1>
+    
+    <table border="1">
+        <tr>
+            <th>°C</th>
+            <th>°F</th>
+        </tr>
+        <%
+            for (double celsius = -20; celsius <= 120; celsius += 0.5) {
+                double fahrenheit = celsiusToFahrenheit(celsius);
+        %>
+                <tr>
+                    <td><%= celsius %></td>
+                    <td><%= fahrenheit %></td>
+                </tr>
+        <%
+            }
+        %>
+    </table>
+    
+    <%!
+        double celsiusToFahrenheit(double celsius) {
+            return (9.0 / 5.0) * celsius + 32;
+        }
+    %>
+</body>
+</html>
